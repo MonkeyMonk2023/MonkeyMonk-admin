@@ -12,7 +12,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [featurePlaceFormOpen, setFeaturePlaceFormOpen] = useState(false);
 
   const { user } = UserAuth();
-  if (user) {
+  if (!user) {
     return (
       <div className="dark:bg-boxdark-2 dark:text-bodydark">
         <div

@@ -27,7 +27,7 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path={process.env.PUBLIC_URL + '/login'} element={<Login />} />
-        {/* <Route path="/" element={<DashboardLayout />} /> */}
+        <Route path="/" element={<DashboardLayout />} />
       </Routes>
     </BrowserRouter>
     </>
