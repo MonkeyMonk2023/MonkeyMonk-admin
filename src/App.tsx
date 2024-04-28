@@ -24,12 +24,10 @@ function App() {
 
   return (
     <>
-    <HashRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<DashboardLayout />} />
       </Routes>
-    </HashRouter>
     </>
   );
 }
