@@ -12,7 +12,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [featurePlaceFormOpen, setFeaturePlaceFormOpen] = useState(false);
 
   const { user } = UserAuth();
-  if (!user) {
+  // if (!user) {
     return (
       <div className="dark:bg-boxdark-2 dark:text-bodydark">
         <div
@@ -52,10 +52,10 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
           </div>
         }
       </div>
-    );
-  } else {
-    return <Navigate to={process.env.PUBLIC_URL + '/login'} />;
-  }
-};
+//     );
+//   } else {
+//     return <Navigate to={process.env.PUBLIC_URL + '/login'} />;
+//   }
+)};
 
 export default DefaultLayout;
