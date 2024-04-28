@@ -1,6 +1,6 @@
 {
   "name": "MonkeyMonk-admin",
-  "private": true,
+  "private": false,
   "version": "1.3.0",
   "homepage": "https://github.com/MonkeyMonk2023/MonkeyMonk-admin",
   "type": "module",
