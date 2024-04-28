@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-    <HashRouter basename='MonkeyMonk-admin'>
+    <HashRouter basename='/MonkeyMonk-admin'>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<DashboardLayout />} />
