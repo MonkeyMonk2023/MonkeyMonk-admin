@@ -24,12 +24,13 @@ function App() {
 
   return (
     <>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    {/* <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path={process.env.PUBLIC_URL + '/login'} element={<Login />} />
         <Route path="/" element={<DashboardLayout />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <h1>hello</h1>
     </>
   );
 }
