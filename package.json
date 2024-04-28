@@ -2,7 +2,7 @@
   "name": "MonkeyMonk-admin",
   "private": false,
   "version": "1.3.0",
-  "homepage": "https://github.com/MonkeyMonk2023/MonkeyMonk-admin/",
+  "homepage": "https://github.com/MonkeyMonk2023/MonkeyMonk-admin/#",
   "type": "module",
   "scripts": {
     "dev": "vite",

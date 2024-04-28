@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import PageTitle from './components/PageTitle';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -24,10 +24,12 @@ function App() {
 
   return (
     <>
+    <HashRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<DashboardLayout />} />
       </Routes>
+    </HashRouter>
     </>
   );
 }
