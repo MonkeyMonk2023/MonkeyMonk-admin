@@ -26,8 +26,8 @@ function App() {
     <>
     <HashRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/*" element={<DashboardLayout />} />
+        <Route path="/MonkeyMonk-admin/login" element={<Login />} />
+        <Route path="/MonkeyMonk-admin/*" element={<DashboardLayout />} />
       </Routes>
     </HashRouter>
     </>
