@@ -26,7 +26,7 @@ function App() {
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<DashboardLayout />} />
+        <Route path="*" element={<DashboardLayout />} />
       </Routes>
     </>
   );

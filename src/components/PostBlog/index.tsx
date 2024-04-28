@@ -116,7 +116,6 @@ const PostBlog = (props: {
     }
 
     await addDoc(collection(db, 'blogs'), formData);
-    console.log('Form submitted with data:', formData);
     setFormData({
       title: '',
       content: '',

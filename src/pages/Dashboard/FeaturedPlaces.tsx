@@ -83,7 +83,6 @@ const FeaturedPlaces: React.FC = () => {
           <EditFeaturedPlace
             place={editingFeaturedPlace}
             onSubmit={(data) => {
-              console.log('Submitted data:', data);
               setEditingFeaturedPlace(null);
             }}
             onCancel={() => setEditingFeaturedPlace(null)}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/authContext';
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
@@ -65,9 +65,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
       }`}
     >
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
-        <NavLink to="/">
+        <div onClick={() => {navigate("/")}}>
           <h2 className="font-bold text-xl text-white">MonkeyMonk Admin</h2>
-        </NavLink>
+        </div>
 
         <button
           ref={trigger}
@@ -101,8 +101,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
 
             <ul className="mb-6 flex flex-col gap-1.5">
               <li>
-                <NavLink
-                  to="/"
+                <div
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     !pathname.includes('users') &&
                     !pathname.includes('blogs') &&
@@ -110,51 +109,52 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
                     !pathname.includes('user-posts') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => {navigate("/")}}
                 >
                   Dashboard
-                </NavLink>
+                </div>
               </li>
               <li>
-                <NavLink
-                  to="/users"
+                <div
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('users') && 'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => {navigate("/users")}}
                 >
                   Users
-                </NavLink>
+                </div>
               </li>
               <li>
-                <NavLink
-                  to="/blogs"
+                <div
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('blogs') && 'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => {navigate("/blogs")}}
                 >
                   Blogs
-                </NavLink>
+                </div>
               </li>
               <li>
-                <NavLink
-                  to="/featured-places"
+                <div
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('featured-places') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => {navigate("/featured-places")}}
                 >
                   Featured Places
-                </NavLink>
+                </div>
               </li>
               <li>
-                <NavLink
-                  to="/user-posts"
+                <div
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('user-posts') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => {navigate("/user-posts")}}
                 >
                   User Posts
-                </NavLink>
+                </div>
               </li>
             </ul>
           </div>

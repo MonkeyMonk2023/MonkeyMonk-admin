@@ -61,7 +61,6 @@ const PostSuggestion = (props: {
 
   const handlePlaceChanged = () => {
     const place = autoCompleteRef.current?.getPlace();
-    console.log(place);
     if (place) {
       setAddressId(place.place_id);
       setAddress(place.name);
@@ -159,7 +158,6 @@ const PostSuggestion = (props: {
       setImageStatus('');
       setCityName('');
       setPostOption('Both');
-      console.log('Form submitted with data:', formData);
     } catch (error) {
       console.error('Error adding trip details: ', error);
       alert('Error adding place details. Please try again later.');

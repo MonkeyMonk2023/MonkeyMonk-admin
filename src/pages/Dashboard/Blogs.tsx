@@ -87,7 +87,6 @@ const Blogs: React.FC = () => {
           <EditBlog
             blog={editingBlog}
             onSubmit={(data) => {
-              console.log('Submitted data:', data);
               setEditingBlog(null);
             }}
             onCancel={() => setEditingBlog(null)}
