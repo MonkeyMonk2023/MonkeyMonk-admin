@@ -7,8 +7,5 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-  },
-  esbuild:{
-    minify: false
   }
 })
