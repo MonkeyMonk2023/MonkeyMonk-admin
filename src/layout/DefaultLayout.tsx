@@ -7,11 +7,11 @@ import { UserAuth } from '../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
 const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [blogFormOpen, setBlogFormOpen] = useState(false);
   const [featurePlaceFormOpen, setFeaturePlaceFormOpen] = useState(false);
 
-  const navigate = useNavigate();
   const { user } = UserAuth();
   if (user) {
     return (
@@ -55,7 +55,8 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       </div>
     );
   } else {
-    return navigate("/login");
+    navigate("/login")
+    return <div>Loading...</div>;
   }
 };
 
