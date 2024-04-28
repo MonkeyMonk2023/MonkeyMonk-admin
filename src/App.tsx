@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-    <HashRouter basename='/MonkeyMonk-admin'>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<DashboardLayout />} />
