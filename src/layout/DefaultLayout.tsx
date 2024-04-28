@@ -54,7 +54,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       </div>
     );
   } else {
-    return <Navigate to="/MonkeyMonk-admin/login" />;
+    return <Navigate to="/login" />;
   }
 };
 
