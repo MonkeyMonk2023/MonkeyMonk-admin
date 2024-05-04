@@ -58,7 +58,7 @@ const Posts: React.FC = () => {
     const confirmDelete = window.confirm('Are you sure you want to permanently delete this Post?');
     if (confirmDelete) {
       try {
-        await deleteDoc(doc(db, 'posts', id));
+        await deleteDoc(doc(db, 'trips', id));
         setPostsData(postsData.filter(Post => Post.id !== id));
       } catch (error) {
         console.error('Error deleting Post: ', error);
