@@ -34,6 +34,7 @@ const PostSuggestion = (props: {
     'Night Club',
     'Park',
     'Place of Worship',
+    'Restaurant',
     'RV Park',
     'Shopping Mall',
     'Spa',
