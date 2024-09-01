@@ -4,7 +4,7 @@ import { faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { storage } from '../../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { zenoraDb } from '../../firebase';
 
 interface FormData {
   title: string;
@@ -102,7 +102,7 @@ const EditBlog = (props: {
     e.preventDefault();
     if (props.blog) {
       try {
-        const blogRef = doc(db, 'blogs', props.blog.id);
+        const blogRef = doc(zenoraDb, 'blogs', props.blog.id);
         await setDoc(blogRef, formData, { merge: true });
         props.onSubmit(formData);
       } catch (error) {

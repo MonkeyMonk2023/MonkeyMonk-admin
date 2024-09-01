@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { db } from '../../firebase';
+import { zenoraDb } from '../../firebase';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import EditFeaturedPlace from '../../components/EditFeaturedPlace';
 
@@ -26,7 +26,7 @@ const FeaturedPlaces: React.FC = () => {
   useEffect(() => {
     const fetchFeaturedPlaces = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'featuredPlaces'));
+        const querySnapshot = await getDocs(collection(zenoraDb, 'featuredPlaces'));
         const featuredPlacesData: FeaturedPlace[] = [];
         querySnapshot.forEach((doc) => {
           featuredPlacesData.push({
@@ -68,7 +68,7 @@ const FeaturedPlaces: React.FC = () => {
     );
     if (confirmDelete) {
       try {
-        await deleteDoc(doc(db, 'featuredPlaces', id));
+        await deleteDoc(doc(zenoraDb, 'featuredPlaces', id));
         setFeaturedPlaces(featuredPlaces.filter((place) => place.id !== id));
       } catch (error) {
         console.error('Error deleting featured place: ', error);

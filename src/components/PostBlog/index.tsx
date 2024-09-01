@@ -1,7 +1,7 @@
 import { faChevronDown, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { db, storage } from '../../firebase';
+import { zenoraDb, zenoraStorage } from '../../firebase';
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { useState } from 'react';
 
@@ -70,7 +70,7 @@ const PostBlog = (props: {
       return;
     }
     setImageStatus('Uploading...');
-    const storageRef = ref(storage, `blogs_images/${image.name}`);
+    const storageRef = ref(zenoraStorage, `blogs_images/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRef, image);
     uploadTask.on(
       'state_changed',
@@ -115,7 +115,7 @@ const PostBlog = (props: {
       return;
     }
 
-    await addDoc(collection(db, 'blogs'), formData);
+    await addDoc(collection(zenoraDb, 'blogs'), formData);
     setFormData({
       title: '',
       content: '',
@@ -133,7 +133,7 @@ const PostBlog = (props: {
     if (!priority || priority === 6) return false;
     try {
       const querySnapshot = await getDocs(
-        query(collection(db, 'blogs'), where('priority', '==', priority)),
+        query(collection(zenoraDb, 'blogs'), where('priority', '==', priority)),
       );
       return !querySnapshot.empty;
     } catch (error) {

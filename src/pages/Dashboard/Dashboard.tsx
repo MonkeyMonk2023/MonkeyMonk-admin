@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardDataStats from '../../components/CardDataStats';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { db } from '../../firebase';
+import { db, zenoraDb } from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 const Dashboard: React.FC = () => {
@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
       if (storedTotalBlogs) {
         setTotalBlogs(parseInt(storedTotalBlogs));
       } else {
-        const blogsSnapshot = await getDocs(collection(db, 'blogs'));
+        const blogsSnapshot = await getDocs(collection(zenoraDb, 'blogs'));
         const totalBlogsCount = blogsSnapshot.size;
         setTotalBlogs(totalBlogsCount);
         localStorage.setItem('totalBlogs', totalBlogsCount.toString());
@@ -59,13 +59,15 @@ const Dashboard: React.FC = () => {
       const storedTotalFeaturedPlaces = localStorage.getItem(
         'totalFeaturedPlaces',
       );
+      console.log(storedTotalFeaturedPlaces)
       if (storedTotalFeaturedPlaces) {
         setTotalFeaturedPlaces(parseInt(storedTotalFeaturedPlaces));
       } else {
         const featuredPlacesSnapshot = await getDocs(
-          collection(db, 'featuredPlaces'),
+          collection(zenoraDb, 'featuredPlaces'),
         );
         const totalFeaturedPlacesCount = featuredPlacesSnapshot.size;
+        console.log(totalFeaturedPlacesCount)
         setTotalFeaturedPlaces(totalFeaturedPlacesCount);
         localStorage.setItem(
           'totalFeaturedPlaces',
@@ -74,7 +76,6 @@ const Dashboard: React.FC = () => {
       }
     };
 
-    // Fetch total counts
     fetchTotalUsers();
     fetchTotalPosts();
     fetchTotalBlogs();

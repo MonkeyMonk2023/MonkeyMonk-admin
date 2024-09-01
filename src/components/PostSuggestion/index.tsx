@@ -7,8 +7,7 @@ import {
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { db } from '../../firebase';
-import { storage } from '../../firebase';
+import { zenoraDb, zenoraStorage } from '../../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection } from 'firebase/firestore';
 
@@ -109,7 +108,7 @@ const PostSuggestion = (props: {
       return;
     }
     setImageStatus('Uploading...');
-    const storageRef = ref(storage, `featured_places_images/${image.name}`);
+    const storageRef = ref(zenoraStorage, `featured_places_images/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRef, image);
     uploadTask.on(
       'state_changed',
@@ -145,7 +144,7 @@ const PostSuggestion = (props: {
         cityName,
         postOption
       };
-      await addDoc(collection(db, 'featuredPlaces'), formData);
+      await addDoc(collection(zenoraDb, 'featuredPlaces'), formData);
       setAddress(null);
       setAddressId(null);
       setPlaceLink('');

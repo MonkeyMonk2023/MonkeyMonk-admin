@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { storage } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { zenoraDb } from "../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -137,7 +137,7 @@ const EditFeaturedPlace = (props: {
     e.preventDefault();
     if (props.place) {
       try {
-        const placeRef = doc(db, "featuredPlaces", props.place.id);
+        const placeRef = doc(zenoraDb, "featuredPlaces", props.place.id);
         await setDoc(placeRef, formData, { merge: true });
         props.onSubmit(formData);
         window.location.reload();

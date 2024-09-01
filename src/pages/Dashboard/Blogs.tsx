@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { db } from '../../firebase';
+import { zenoraDb } from '../../firebase';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import EditBlog from '../../components/EditBlog';
 
@@ -24,7 +24,7 @@ const Blogs: React.FC = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'blogs'));
+        const querySnapshot = await getDocs(collection(zenoraDb, 'blogs'));
         const blogs: Blog[] = [];
         querySnapshot.forEach((doc) => {
           blogs.push({ id: doc.id, ...doc.data() } as Blog);
@@ -66,7 +66,7 @@ const Blogs: React.FC = () => {
     );
     if (confirmDelete) {
       try {
-        await deleteDoc(doc(db, 'blogs', id));
+        await deleteDoc(doc(zenoraDb, 'blogs', id));
         setBlogsData(blogsData.filter((blog) => blog.id !== id));
       } catch (error) {
         console.error('Error deleting blog: ', error);

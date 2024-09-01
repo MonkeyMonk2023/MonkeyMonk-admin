@@ -50,6 +50,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
 
   const handlelogout = async () => {
     try {
+      localStorage.clear();
       await logout();
       navigate("/login");
       console.log("You are logged out");
@@ -102,7 +103,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
             <ul className="mb-6 flex flex-col gap-1.5">
               <li>
                 <div
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 cursor-pointer ${
                     !pathname.includes('users') &&
                     !pathname.includes('blogs') &&
                     !pathname.includes('featured-places') &&
@@ -116,7 +117,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
               </li>
               <li>
                 <div
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4  cursor-pointer ${
                     pathname.includes('users') && 'bg-graydark dark:bg-meta-4'
                   }`}
                   onClick={() => {navigate("/users")}}
@@ -126,7 +127,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
               </li>
               <li>
                 <div
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4  cursor-pointer ${
                     pathname.includes('blogs') && 'bg-graydark dark:bg-meta-4'
                   }`}
                   onClick={() => {navigate("/blogs")}}
@@ -136,7 +137,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
               </li>
               <li>
                 <div
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4  cursor-pointer ${
                     pathname.includes('featured-places') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
@@ -147,7 +148,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
               </li>
               <li>
                 <div
-                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4  cursor-pointer ${
                     pathname.includes('user-posts') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}

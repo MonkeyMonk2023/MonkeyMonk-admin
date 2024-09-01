@@ -20,8 +20,20 @@ export const firebaseLoginConfig = {
   messagingSenderId: "87062934187",
   appId: "1:87062934187:web:51c327e332cf5e12fc7dee"
 };
+
+export const firebaseZenoraConfig = {
+  apiKey: "AIzaSyC8v-B8gUBewws34iNI9iHnr0ZQu_IqrfE",
+  authDomain: "monxverse-8db21.firebaseapp.com",
+  projectId: "monxverse-8db21",
+  storageBucket: "monxverse-8db21.appspot.com",
+  messagingSenderId: "712682884537",
+  appId: "1:712682884537:web:f5dc038cd8c3ca4cffba68",
+  measurementId: "G-HJJCPGME37"
+};
+
 const app = initializeApp(firebaseConfig);
 const loginApp = initializeApp(firebaseLoginConfig, 'login');
+const zenoraApp = initializeApp(firebaseZenoraConfig, 'zenora');
 
 // Initialize Firebase services
 export const auth = getAuth(app);
@@ -30,5 +42,7 @@ export const storage = getStorage(app);
 export const loginAuth = getAuth(loginApp);
 export const loginDb = getFirestore(loginApp);
 export const loginStorage = getStorage(loginApp);
+export const zenoraDb = getFirestore(zenoraApp);
+export const zenoraStorage = getStorage(zenoraApp);
 
 export default app;
